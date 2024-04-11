@@ -13,7 +13,7 @@ fi
 
 
 function process () {
-     head -n${1} mm.txt | xargs --max-procs=0 -I% dig @8.8.8.8 _dmarc.% txt +tries=1 +timeout=10 | grep "v=DMARC1" | cat > ${1}-results.txt
+     head -n${1} majestic_million_april.txt | xargs --max-procs=0 -I% dig @8.8.8.8 _dmarc.% txt +tries=1 +timeout=10 | grep "v=DMARC1" | cat > ${1}-results.txt
 }
 
 FILE="${1}-results.txt"
